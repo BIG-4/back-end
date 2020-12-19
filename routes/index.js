@@ -59,6 +59,7 @@ module.exports = (url, request, response) => {
           userData += data
         })
         request.on('end', () => {
+          console.log(userData)
           const dataParse = JSON.parse(userData)
           if (validateUsername(dataParse.username) && dataParse.password !== undefined) {
             dataParse.username = escapeHtml(dataParse.username)
