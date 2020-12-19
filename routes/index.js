@@ -215,7 +215,7 @@ module.exports = (url, request, response) => {
           if (dataParse.project_name !== undefined && validateNumber(dataParse.project_id)) {
             dataParse.project_name = escapeHtml(dataParse.project_name)
             projectController.handleUpdateProject(
-              projectData,
+              dataParse,
               request.headers,
             )
           } else {
