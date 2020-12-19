@@ -14,13 +14,6 @@ module.exports = (url, request, response) => {
     case '/':
       if (request.method === 'GET') {
         userController.home()
-      } else {
-        response.end(
-          JSON.stringify({
-            status: 405,
-            message: 'Method not allowed',
-          }),
-        )
       }
       break
     case '/users/signup':
@@ -43,14 +36,8 @@ module.exports = (url, request, response) => {
             )
           }
         })
-      } else {
-        response.end(
-          JSON.stringify({
-            status: 405,
-            message: 'Method not allowed',
-          }),
-        )
       }
+
       break
     case '/users/login':
       if (request.method === 'POST') {
@@ -59,7 +46,6 @@ module.exports = (url, request, response) => {
           userData += data
         })
         request.on('end', () => {
-          console.log(userData)
           const dataParse = JSON.parse(userData)
           if (validateUsername(dataParse.username) && dataParse.password !== undefined) {
             dataParse.username = escapeHtml(dataParse.username)
@@ -73,25 +59,11 @@ module.exports = (url, request, response) => {
             )
           }
         })
-      } else {
-        response.end(
-          JSON.stringify({
-            status: 405,
-            message: 'Method not allowed',
-          }),
-        )
       }
       break
     case '/users/logout':
       if (request.method === 'GET') {
         userController.signOut(request.headers)
-      } else {
-        response.end(
-          JSON.stringify({
-            status: 405,
-            message: 'Method not allowed',
-          }),
-        )
       }
       break
 
@@ -117,11 +89,8 @@ module.exports = (url, request, response) => {
             )
           }
         })
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
+
       break
     case '/tasks/delete':
       if (request.method === 'DELETE') {
@@ -133,10 +102,6 @@ module.exports = (url, request, response) => {
             JSON.stringify({ status: 422, message: 'Unprocessable Entity' }),
           )
         }
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     case '/tasks/update':
@@ -164,10 +129,6 @@ module.exports = (url, request, response) => {
             )
           }
         })
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     case '/task':
@@ -182,10 +143,6 @@ module.exports = (url, request, response) => {
             )
           }
         } else taskController.handleViewAllTasks(request.headers)
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     case '/tasks/search':
@@ -197,10 +154,6 @@ module.exports = (url, request, response) => {
         taskController.handleFilterTask({
           keyword, projectId, userId, statusId,
         }, request.headers)
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     case '/tasks/count':
@@ -209,10 +162,6 @@ module.exports = (url, request, response) => {
         const projectId = validateNumber(url.searchParams.get('project_id')) ? url.searchParams.get('project_id') : undefined
         const statusId = validateNumber(url.searchParams.get('status_id')) ? url.searchParams.get('status_id') : undefined
         taskController.handleCountTasks(request.headers, { username, projectId, statusId })
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
 
@@ -236,10 +185,6 @@ module.exports = (url, request, response) => {
             )
           }
         })
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     case '/projects/delete':
@@ -252,10 +197,6 @@ module.exports = (url, request, response) => {
             JSON.stringify({ status: 422, message: 'Unprocessable Entity' }),
           )
         }
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     case '/projects/update':
@@ -278,10 +219,6 @@ module.exports = (url, request, response) => {
             )
           }
         })
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     case '/project':
@@ -299,10 +236,6 @@ module.exports = (url, request, response) => {
             )
           }
         } else projectController.handleViewAllProjects(request.headers)
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
 
@@ -321,10 +254,6 @@ module.exports = (url, request, response) => {
             )
           }
         } else statusController.handleViewAllStatuses(request.headers)
-      } else {
-        response.end(
-          JSON.stringify({ status: 405, message: 'Method not allowed' }),
-        )
       }
       break
     default:
