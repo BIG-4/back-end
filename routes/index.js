@@ -92,6 +92,11 @@ module.exports = (url, request, response) => {
       }
 
       break
+    case '/users':
+      if (request.method === 'GET') {
+        userController.getAllUsers(request.headers)
+      }
+      break
     case '/tasks/delete':
       if (request.method === 'DELETE') {
         const taskId = url.searchParams.get('id')
