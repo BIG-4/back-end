@@ -159,7 +159,7 @@ module.exports = (response) => ({
                         JSON.stringify({
                           status: 201,
                           success: false,
-                          message: 'No such task exists for user',
+                          message: 'No such project exists for user',
                         }),
                       )
                     } else {
@@ -264,7 +264,7 @@ module.exports = (response) => ({
                         JSON.stringify({
                           status: 201,
                           success: false,
-                          message: 'No such task exists',
+                          message: 'No such project exists',
                         }),
                       )
                     }
