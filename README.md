@@ -5,7 +5,6 @@ A pure Node.js MVC Back-end to create RESTful APIs for Task Management Project.
 - Node.js
 - MySQL2
 - Bcrypt
-- Heroku
 
 ## Installation
 If you're running it locally on your pc, also perform these steps:
