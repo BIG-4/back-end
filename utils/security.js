@@ -12,5 +12,15 @@ module.exports = {
     }
     return text.replace(/[&<>"']/g, (m) => map[m])
   },
+  htmlDecode: (text) => {
+    const map = {
+      '&amp;': '&',
+      '&lt;': '<',
+      '&gt;': '>',
+      '&quot;': '"',
+      '&#039;': '\'',
+    }
+    return text.replace(/(&amp;|&lt;|&gt;|&quot;|&#039)/g, (m) => map[m])
+  },
   decodeURI: (uri) => decodeURIComponent(uri),
 }
