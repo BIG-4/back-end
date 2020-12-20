@@ -4,7 +4,7 @@ const routing = require('./routes')
 const { decodeURI } = require('./utils/security')
 
 const baseURI = `http://localhost:${env.PORT || 2000}`
-
+console.log(process.env.BINH)
 console.log(`Server listen on ${baseURI}`)
 http.createServer((request, response) => {
   const url = new URL(baseURI + decodeURI(request.url))
