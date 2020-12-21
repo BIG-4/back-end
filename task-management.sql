@@ -55,11 +55,10 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`project_id`, `project_name`) VALUES
-(1, 'project 1'),
-(4, 'project 4'),
-(5, 'project 5'),
-(6, 'project 6');
-
+(1,	'Project III'),
+(4,	'Công nghệ web'),
+(5,	'Android'),
+(11,	'Big Data');
 -- --------------------------------------------------------
 
 --
@@ -76,12 +75,6 @@ CREATE TABLE `sessions` (
 --
 -- Dumping data for table `sessions`
 --
-
-INSERT INTO `sessions` (`session_id`, `user_id`, `access_token`, `create_at`) VALUES
-(1, 4, 'we9BrGznQhM3iA1oiCj5ra&lsR$rdW@n', '2020-11-27 16:33:39'),
-(2, 4, 'dczLo4@BrR4PU#pXmFCSGcAiR3@wpCeg', '2020-11-27 16:35:14'),
-(3, 4, '2V8&i4Z&0oD3#ha1nLDaQjYTAP14ksUi', '2020-11-27 16:35:32'),
-(4, 4, 'YMJ8V&4oPdnMPVjJ9z6RLQTNKDTIehyv', '2020-11-27 16:35:38');
 
 -- --------------------------------------------------------
 
@@ -124,11 +117,30 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`task_id`, `task_title`, `project_id`, `user_id`, `status_id`, `create_at`) VALUES
-(4, 'task 4', 1, 4, 0, '2020-11-24 01:40:05'),
-(5, 'task 4', 6, 4, 2, '2020-11-24 15:47:23'),
-(6, 'task 5', 4, 4, 2, '2020-11-24 15:48:41'),
-(12, 'task 6', 5, 5, 0, '2020-11-24 20:44:58'),
-(13, 'task 7', 1, 5, 0, '2020-11-24 20:46:24');
+(6,	'Deploy back-end',	1,	5,	1,	'2020-11-24 15:48:41'),
+(12,	'task 6',	5,	5,	0,	'2020-11-24 20:44:58'),
+(13,	'Fix login error',	1,	5,	2,	'2020-11-24 20:46:24'),
+(14,	'Back-end: Sign in / Sign up',	1,	4,	3,	'2020-12-15 15:51:15'),
+(17,	'Deploy front-end',	1,	11,	0,	'2020-12-16 16:29:34'),
+(20,	'Back-end: CRUD projects',	4,	4,	3,	'2020-12-21 02:42:40'),
+(21,	'Back-end: CRUD tasks',	4,	4,	2,	'2020-12-21 02:43:01'),
+(22,	'Back-end: Sign in / Sign up',	4,	5,	3,	'2020-12-21 02:43:31'),
+(23,	'Coding convention',	4,	4,	3,	'2020-12-21 02:43:54'),
+(24,	'Thiết kế API',	4,	12,	3,	'2020-12-21 02:44:21'),
+(25,	'Deploy front-end',	4,	11,	1,	'2020-12-21 02:45:52'),
+(26,	'Deploy back-end',	4,	4,	0,	'2020-12-21 02:46:03'),
+(27,	'Deploy database',	4,	12,	0,	'2020-12-21 02:46:17'),
+(28,	'Front-end: Sign in / Sign up',	4,	5,	2,	'2020-12-21 02:47:00'),
+(29,	'Front-end: Projects Management',	4,	12,	3,	'2020-12-21 02:47:42'),
+(30,	'Front-end: Tasks Management',	4,	11,	3,	'2020-12-21 02:48:03'),
+(31,	'Viết báo cáo',	4,	12,	2,	'2020-12-21 02:48:28'),
+(32,	'Security',	4,	4,	1,	'2020-12-21 02:48:48'),
+(33,	'Deploy database',	1,	12,	1,	'2020-12-21 02:57:43'),
+(34,	'Front-end: Sign in / Sign up',	1,	4,	3,	'2020-12-21 02:58:27'),
+(35,	'Thiết kế API',	1,	11,	3,	'2020-12-21 02:58:37'),
+(36,	'Feature 1',	1,	4,	2,	'2020-12-21 02:59:02'),
+(37,	'Feature 2',	1,	11,	2,	'2020-12-21 02:59:11'),
+(38,	'Init',	11,	4,	0,	'2020-12-21 02:59:50');
 
 -- --------------------------------------------------------
 
@@ -148,9 +160,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `auth_token`) VALUES
-(3, 'test2', '$2b$10$GsdOBzr2A9rrRfoxZa0gGeAVKAyM.D1xTDMeqDxWOFbDQEmJ2.zAy', 'GVti2MMWt6L@BuEbKGFp2pMpIKlcagJW'),
-(4, 'binhnd', '$2b$10$tu5pkEg9TMghd1xWa7oLceB42r6hWQjwwc/1Cd2EYSJIcGXsvDYwa', 'TLy&D#aENLPm889Yh22eGlI#bImr7t1u'),
-(5, 'test', '$2b$10$BM/7ciw8duYLDROcsuQjBegLA4T3Gehz3lJXXmLZhjBR0DKcD9IQa', 'k@oPotFQ@12@u9jFtssOf4K&xLTIyFUZ');
+(4,	'binhnd',	'$2b$10$tu5pkEg9TMghd1xWa7oLceB42r6hWQjwwc/1Cd2EYSJIcGXsvDYwa',	'TLy&D#aENLPm889Yh22eGlI#bImr7t1u'),
+(5,	'huymq',	'$2b$10$BM/7ciw8duYLDROcsuQjBegLA4T3Gehz3lJXXmLZhjBR0DKcD9IQa',	'k@oPotFQ@12@u9jFtssOf4K&xLTIyFUZ'),
+(11,	'huylq',	'$2b$10$coPdz3Z0cPGC47Jdn5eJneapfj3sb3QHRIBIEonYzGqj7OC4ICM/2',	'hWuY0UtzDnX$51XsO3MgASvYtXR7cnt4'),
+(12,	'thanhlth',	'$2b$10$lFX0QHGiqIF9UvLkYA9CROky.IFbWScpRmKPlzmmgWnO.hKb6CbBm',	'OQIrGsyf9oxCjLjfLyd33o5seC1wBlej');
 
 --
 -- Indexes for dumped tables
